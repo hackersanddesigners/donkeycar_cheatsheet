@@ -21,7 +21,9 @@ You can find the instructions on how to do this here:
 
 Once the Raspberry is connected to the wifi you can log in over SSH with the following command:
 
-ssh [pi@hd-basel-0x.local](mailto:pi@hd-basel-0x.local)
+```
+ssh [pi@hd-basel-0x.local](http://pi@hd-basel-0x.local)
+```
 
 (replace the x with the number of your car/installation)
 
@@ -33,14 +35,16 @@ The cars we used in the workshop were setup to have the donkeycar software insta
 
 Go to this directory by typing:
 
-```cd car-test
+```
+cd car-test
 ```
 
 You are now in the car-test directory (to check type &#39;cwd&#39; and the result should be /home/pi/car-test).
 
 You can now start the software:
 
-```python manage.py drive
+```
+python manage.py drive
 ```
 
 Wait a while. After a few moments the software should be started. You should then be able to connect to the web controller from you laptop or telephone (if they are connected to the same wifi network of course) by going to: [http://hd-basel-0x.local:8887](http://hd-basel-0x.local:8887) (again replace the x)
@@ -53,17 +57,20 @@ This assumes you have the donkey software already installed! If not follow the i
 
 First activate the python environment:
 
-```conda activate donkey
+```
+conda activate donkey
 ```
 
 First make sure you are in the correct folder. It is probably ~/mycar but you might have chosen another folder during installation!
 
-```cd ~/mycar
+```
+cd ~/mycar
 ```
 
 The following command copies the files back you the directory you are currently in:
 
-```rsync -rv [pi@hs-basel-0x.local](mailto:pi@hs-basel-0x.local):~/car-test/data .
+```
+rsync -rv [pi@hs-basel-0x.local](http://pi@hs-basel-0x.local):~/car-test/data .
 ```
 
 -rv = also copy all files in subdirectories and show what is being copied.
@@ -116,13 +123,13 @@ This is going to take a while. Have some coffee… Maybe go for a walk.
 This command it almost the opposite of the one before:
 
 ```
-rsync -rv ./models/\&lt;pilot name\&gt;.h5 [pi@hs-basel-0x.local](mailto:pi@hs-basel-0x.local):~/car-test/models
+rsync -rv ./models/\&lt;pilot name\&gt;.h5 [pi@hs-basel-0x.local](http://pi@hs-basel-0x.local):~/car-test/models
 ```
 
 Taking the example from the previous step, it should look like this:
 
 ```
-rsync -rv ./models/super-pilot.h5 [pi@hs-basel-0x.local](mailto:pi@hs-basel-0x.local):~/car-test/models
+rsync -rv ./models/super-pilot.h5 [pi@hs-basel-0x.local](http://pi@hs-basel-0x.local):~/car-test/models
 ```
 
 (again: replace the x)
