@@ -22,7 +22,7 @@ You can find the instructions on how to do this here:
 Once the Raspberry is connected to the wifi you can log in over SSH with the following command:
 
 ```
-ssh [pi@hd-basel-0x.local](http://pi@hd-basel-0x.local)
+ssh pi@hd-basel-0x.local
 ```
 
 (replace the x with the number of your car/installation)
@@ -70,7 +70,7 @@ cd ~/mycar
 The following command copies the files back you the directory you are currently in:
 
 ```
-rsync -rv [pi@hs-basel-0x.local](http://pi@hs-basel-0x.local):~/car-test/data .
+rsync -rv pi@hs-basel-0x.localscy:~/car-test/data .
 ```
 
 -rv = also copy all files in subdirectories and show what is being copied.
@@ -87,7 +87,8 @@ Wait until it is done. All the files are now on your computer.
 
 Run the following command:
 
-```donkey tubclean data/
+```
+donkey tubclean data/
 ```
 
 This command starts the tub clean utility. When it is running you can open the following page in your browser:
@@ -100,18 +101,24 @@ _Remember the names of the tub\_ directories with images you want to use for the
 
 # 6. Train an autopilot
 
-**Notice!** Make sure that the settings in config.py/myconfig.py on the computer are the same as the settings on the donkeycar!
+**Notice! Make sure that the settings in config.py/myconfig.py on the computer are the same as the settings on the donkeycar!**
 
 If you are sure the setting files are identical, start training:
 
 ```
-python manage.py train --tub \&lt;tub folder names comma separated\&gt; --model models/\&lt;pilot name\&gt;.h5
+python manage.py train --tub <tub folder names comma separated> --model models/\&lt;pilot name\&gt;.h5
 ```
 
 The exact command depends on the name (or names) of your tub directories. It should look something like this:
 
 ```
 python manage.py train --tub data/tub\_68\_20-02-12 --model models/super-pilot.h5
+```
+
+Or with multiple folders:
+
+```
+python manage.py train --tub data/tub\_68\_20-02-12,data/tub\_69\_20-02-12 --model models/super-pilot.h5
 ```
 
 This is going to take a while. Have some coffee… Maybe go for a walk.
@@ -123,13 +130,13 @@ This is going to take a while. Have some coffee… Maybe go for a walk.
 This command it almost the opposite of the one before:
 
 ```
-rsync -rv ./models/\&lt;pilot name\&gt;.h5 [pi@hs-basel-0x.local](http://pi@hs-basel-0x.local):~/car-test/models
+rsync -rv ./models/<pilot name>.h5 pi@hs-basel-0x.local:~/car-test/models
 ```
 
 Taking the example from the previous step, it should look like this:
 
 ```
-rsync -rv ./models/super-pilot.h5 [pi@hs-basel-0x.local](http://pi@hs-basel-0x.local):~/car-test/models
+rsync -rv ./models/super-pilot.h5 pi@hs-basel-0x.local:~/car-test/models
 ```
 
 (again: replace the x)
@@ -139,7 +146,7 @@ rsync -rv ./models/super-pilot.h5 [pi@hs-basel-0x.local](http://pi@hs-basel-0x.l
 If necessary, log back in to the donkey car and go to ~/car-test ( see step 2 and 3).
 
 ```
-python manage.py drive --model models/\&lt;model name\&gt;.h5
+python manage.py drive --model models/<model name>.h5
 ```
 
 Example:
