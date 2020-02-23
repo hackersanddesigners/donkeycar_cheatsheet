@@ -97,12 +97,14 @@ _Remember the names of the tub\_ directories with images you want to use for the
 
 If you are sure the setting files are identical, start training:
 
-```python manage.py train --tub \&lt;tub folder names comma separated\&gt; --model models/\&lt;pilot name\&gt;.h5
+```
+python manage.py train --tub \&lt;tub folder names comma separated\&gt; --model models/\&lt;pilot name\&gt;.h5
 ```
 
 The exact command depends on the name (or names) of your tub directories. It should look something like this:
 
-```python manage.py train --tub data/tub\_68\_20-02-12 --model models/super-pilot.h5
+```
+python manage.py train --tub data/tub\_68\_20-02-12 --model models/super-pilot.h5
 ```
 
 This is going to take a while. Have some coffee… Maybe go for a walk.
@@ -113,12 +115,14 @@ This is going to take a while. Have some coffee… Maybe go for a walk.
 
 This command it almost the opposite of the one before:
 
-```rsync -rv ./models/\&lt;pilot name\&gt;.h5 [pi@hs-basel-0x.local](mailto:pi@hs-basel-0x.local):~/car-test/models
+```
+rsync -rv ./models/\&lt;pilot name\&gt;.h5 [pi@hs-basel-0x.local](mailto:pi@hs-basel-0x.local):~/car-test/models
 ```
 
 Taking the example from the previous step, it should look like this:
 
-```rsync -rv ./models/super-pilot.h5 [pi@hs-basel-0x.local](mailto:pi@hs-basel-0x.local):~/car-test/models
+```
+rsync -rv ./models/super-pilot.h5 [pi@hs-basel-0x.local](mailto:pi@hs-basel-0x.local):~/car-test/models
 ```
 
 (again: replace the x)
@@ -127,12 +131,14 @@ Taking the example from the previous step, it should look like this:
 
 If necessary, log back in to the donkey car and go to ~/car-test ( see step 2 and 3).
 
-```python manage.py drive --model models/\&lt;model name\&gt;.h5
+```
+python manage.py drive --model models/\&lt;model name\&gt;.h5
 ```
 
 Example:
 
-```python manage.py drive model --models/super-pilot.h5
+```
+python manage.py drive model --models/super-pilot.h5
 ```
 
 And start the car again by going to: [http://hd-basel-0x.local:8887](http://hd-basel-0x.local:8887)
