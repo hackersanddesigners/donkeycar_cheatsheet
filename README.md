@@ -39,7 +39,7 @@ Go to this directory by typing:
 cd car-test
 ```
 
-You are now in the car-test directory (to check type &#39;cwd&#39; and the result should be /home/pi/car-test).
+You are now in the car-test directory (to check type &#39;pwd&#39; and the result should be /home/pi/car-test).
 
 You can now start the software:
 
@@ -61,7 +61,7 @@ First activate the python environment:
 conda activate donkey
 ```
 
-First make sure you are in the correct folder. It is probably ~/mycar but you might have chosen another folder during installation!
+Then make sure you are in the correct folder. It is probably ~/mycar but you might have chosen another folder during installation!
 
 ```
 cd ~/mycar
@@ -70,7 +70,7 @@ cd ~/mycar
 The following command copies the files back you the directory you are currently in:
 
 ```
-rsync -rv pi@hs-basel-0x.localscy:~/car-test/data .
+rsync -rv pi@hs-basel-0x.local:~/car-test/data .
 ```
 
 -rv = also copy all files in subdirectories and show what is being copied.
@@ -106,7 +106,7 @@ _Remember the names of the tub\_ directories with images you want to use for the
 If you are sure the setting files are identical, start training:
 
 ```
-python manage.py train --tub <tub folder names comma separated> --model models/\&lt;pilot name\&gt;.h5
+python manage.py train --tub <tub folder names comma separated> --model models/<pilot name>.h5
 ```
 
 The exact command depends on the name (or names) of your tub directories. It should look something like this:
